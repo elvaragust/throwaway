@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Nánari upplysingar{% endblock %}
+{% block content %}
+    <h1>Nánari upplysingar</h1>
+
+    {% for item in gogn['results'] %}
+        {% if item.key == k %}
+            <h3>Staður: {{ item.name }}</h3>
+            <h3>Söluaðili: {{ item.company }}</h3>
+            <h3>Verð á 1. Lítra af bensíni: {{ item.bensin95 }}</h3>
+            <h3>Verð á 1. Lítra af dísel: {{ item.diesel}}</h3>
+
+            <div class="kort">
+                <h4>Staðsetning Bensínstöðvar</h4>
+                <ul>
+                    <li>Breiddargráða: {{ item.geo.lat }}</li>
+                    <li>Lengdargráð:{{ item.geo.lon }}</li>
+                    <li><a href="https://google.com/maps/@{{item.geo.lat}},{{item.geo.lon}},17z/">Staðsetning á google maps</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

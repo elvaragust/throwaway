@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Verkefni3 {% endblock %}
+{% block content %}
+<div class="wrapper">
+    {% set oneCo = [] %}
+    {% for item in gogn['results'] %}
+        {% if item.company not in oneCo %}
+            {% do oneCo.append(item.company) %}
+            <div class="box">
+                <a href="/company/{{ item.company }}">
+                    <img src="static/{{ item.company }}.png" title="{{ item.company }}">
+                </a>
+            </div>
+        {% endif %}    
+    {% endfor %}
+</div>
+<div class="kort">
+    <h2>Besta verðið</h2>
+    <h4>ódýrast bensínið: {{ minP[1] }} kr. {{ minP[0] }} <br>Staður: {{ minP[2] }}</h4>
+    <h4>Ódýrast díselolían: </h4>
+</div>
+
+<p> Síðast uppfært: {{gogn.timestampPriceChanges | format_time }}</p>
+{% endblock %}

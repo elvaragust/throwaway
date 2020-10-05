@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="is">
+    <head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} Vefþ2vfc</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title> - VEFÞ205B</title> 
+    </head>
+    {% endblock %}
+    <body>
+        {% include "haus.html" ignore missing %}
+        <main>
+            {% block content %} {% endblock %}
+        </main>
+        {% include "fotur.html" ignore missing %}
+        <footer>&copy; Ágúst birgir</footer>
+
+        
+    </body> 
+</html>
